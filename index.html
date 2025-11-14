@@ -15,10 +15,21 @@
     <script src="map.js" type="module"></script>
 </head>
 <body>
+  <header style="display: flex; gap: 1em; align-items: baseline;">
   <h1>🚴🏼‍♀️ Bikewatching</h1>
+  <label style="margin-left:auto">
+  Filter by time:
+  <input id="time-slider" type="range" min="-1" max="1440" value="-1" />
+  <time id="selected-time" style="display: block"></time>
+  <em id="any-time" style="display: block; color: #888;">(any time)</em>
+  </label>
+</header>
   <p>An interactive map revealing Boston’s bike traffic patterns and station flows.</p>
   <div id="map">
     <svg></svg>
   </div>
 </body>
 </html>
+
+
+
