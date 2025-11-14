@@ -97,24 +97,26 @@ map.on('load', async () => {
       .scaleSqrt()
       .domain([0, d3.max(stations, d => d.totalTraffic)])
       .range([0, 25]);
-
+        
     const circles = svg
-    .selectAll('circle')
-    .data(stations)
-    .enter()
-    .append('circle')
-    .attr('r', d => radiusScale(d.totalTraffic))
-    .attr('fill', 'steelblue')
-    .attr('stroke', 'white')
-    .attr('stroke-width', 1)
-    .attr('opacity', 0.6)
-    .each(function (d) {
-        d3.select(this)
-        .append('title')
-        .text(
-            `${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`
-        );
-    });
+        .selectAll('circle')
+        .data(stations)
+        .enter()
+        .append('circle')
+        .attr('r', d => radiusScale(d.totalTraffic))
+        .attr('fill', 'steelblue')
+        .attr('stroke', 'white')
+        .attr('stroke-width', 1)
+        .attr('opacity', 0.6)
+        .each(function (d) {
+            d3.select(this)
+            .append('title')
+            .text(
+                `${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`
+            );
+        });
+
+
 
     function updatePositions() {
       circles
